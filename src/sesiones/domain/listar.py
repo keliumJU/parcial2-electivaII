@@ -1,14 +1,6 @@
-class ListarEstudiantes():
-    def __init__(self, DB):
-        self.DB = DB
+class ListarSesiones():
+    def __init__(self, sesionesModel):
+        self.sesionesModel=sesionesModel
 
     def run(self):
-        cursor = self.DB.cursor(dictionary=True)
-
-        cursor.execute('select * from estudiante')
-
-        estudiantes = cursor.fetchall()
-        
-        cursor.close()
-        
-        return estudiantes
+        return [self.sesionesModel.json(sesion) for sesion in self.sesionesModel.query.all()]

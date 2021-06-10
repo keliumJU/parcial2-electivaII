@@ -1,12 +1,10 @@
-import mariadb
+from flask_sqlalchemy import SQLAlchemy
 
-config = {
-    'host' : 'localhost',
-    'port' : 3308,
-    'user' : 'root',
-    'password' : '',
-    'database' : 'estudiantes',
-}
+# Configure our Database
+conf={'SQLALCHEMY_DATABASE_URI':'','SQLALCHEMY_TRACK_MODIFICATIONS':''}
+conf['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://root:@localhost:3306/parcial2'
+conf['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-DB = mariadb.connect(**config)
-DB.autocommit = True
+def db_sql_alchemy(prin):
+    db = SQLAlchemy(prin)
+    return db

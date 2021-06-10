@@ -1,4 +1,4 @@
-from src.config.settings import db
+from src.shared.infra.base_api import db 
 
 RegistroEspacioAcademico=db.Table('espacios_academicos_estudiante',
     db.Column('identificacion', db.String(10), db.ForeignKey('estudiantes.identificacion')),
@@ -20,6 +20,15 @@ class Estudiantes(db.Model):
     espacios_academicos=db.relationship('EspaciosAcademicos',enable_typechecks=False, secondary=RegistroEspacioAcademico,backref=db.backref('espacios'),lazy='dynamic')
     session=db.relationship('Sesiones',enable_typechecks=False,secondary=RegistroAsistencia,backref=db.backref('asistencia'),lazy='dynamic')
     #id_espacio_academico=db.Column(db.String(255), nullable=False)
+    def json(self):
+        return {
+            'identificacion':self.identificacion,
+            'nombres':self.nombres,
+            'apellidos':self.apellidos,
+            'celular':self.celular,
+            'correo':self.correo,
+            
+        } 
     __mapper_args__ = {
         'polymorphic_identity': 'estudiantes',
         'with_polymorphic': '*'
@@ -31,6 +40,12 @@ class EspaciosAcademicos(db.Model):
     #semestre=db.Column(db.Integer, nullable=False)
     semestre_id=db.Column(db.Integer,db.ForeignKey('semestres.semestre_id'))
     sesiones_=db.relationship('Sesiones', enable_typechecks=False, backref='espacioSesion')    
+    def json(self):
+        return {
+            'espacio_id':self.espacio_id,
+            'nombre':self.nombre,
+            'semestre_id':self.semestre_id
+        } 
     __mapper_args__ = {
         'polymorphic_identity': 'espacios_academicos',
         'with_polymorphic': '*'
@@ -41,6 +56,11 @@ class Semestres(db.Model):
     semestre_id=db.Column(db.Integer,primary_key=True)
     nombre=db.Column(db.String(25),nullable=False)
     espacio_academico=db.relationship('EspaciosAcademicos', enable_typechecks=False, backref='espacioSemestre')    
+    def json(self):
+        return {
+            'semestre_id':self.semestre_id,
+            'nombre':self.nombre,
+        } 
     __mapper_args__ = {
         'polymorphic_identity': 'semestres',
         'with_polymorphic': '*'
@@ -54,7 +74,14 @@ class Sesiones(db.Model):
     hora_ini=db.Column(db.Time,nullable=False)
     hora_fin=db.Column(db.Time,nullable=False)
     espacio_academico_id=db.Column(db.Integer,db.ForeignKey('espacios_academicos.espacio_id'))
-    
+    def json(self):
+        return {
+            'sesion_id':self.sesion_id,
+            'fecha':str(self.fecha),
+            'hora_ini':str(self.hora_ini),
+            'hora_fin':str(self.hora_fin),
+            'espacio_academico_id':self.espacio_academico_id
+        } 
     __mapper_args__ = {
         'polymorphic_identity': 'sesiones',
         'with_polymorphic': '*'
