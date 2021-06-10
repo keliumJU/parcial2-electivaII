@@ -17,3 +17,11 @@ Dando como resultado una API completamente funcional que abarca 6 módulos los c
 * Asistencia. 
 
 Se puede probar los endpoints libremente utilizando el archivo **.json** importándolo en tu cliente API  preferido como **postman** o **insomnia**.
+
+Por ultimo, Cabe mencionar, que se ***Dockerizo*** la aplicación, para que sea construida por medio del orquestador de contenedores *docker-compose*, los pasos para su despliegue en local son:
+
+1. ``` docker-compose build ```
+
+2. ``` docker-compose up –d ```
+
+Esto abrira los puertos **5000  y 3306** de tu ordenador, por ello revisar que estén disponibles, después se puede probrar libremente el Api que apunta a: **127.0.0.1:5000/<>**
