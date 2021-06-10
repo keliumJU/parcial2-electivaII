@@ -1,0 +1,701 @@
+{
+	"info": {
+		"_postman_id": "ff23e15a-4fb3-4971-b611-b658768ca05c",
+		"name": "parcial3-arq-hexagonal-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Estudiantes",
+			"item": [
+				{
+					"name": "listar_estudiantes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/estudiantes",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"estudiantes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "crear_estudiante",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "identificacion",
+									"value": "54321",
+									"type": "text"
+								},
+								{
+									"key": "nombres",
+									"value": "pedritojuanito",
+									"type": "text"
+								},
+								{
+									"key": "apellidos",
+									"value": "ramirez",
+									"type": "text"
+								},
+								{
+									"key": "celular",
+									"value": "3203782946",
+									"type": "text"
+								},
+								{
+									"key": "correo",
+									"value": "pedritojuanito@gamail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/estudiantes",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"estudiantes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "actualizar_estudiante",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "identificacion",
+									"value": "54321",
+									"type": "text"
+								},
+								{
+									"key": "nombres",
+									"value": "otronombre",
+									"type": "text"
+								},
+								{
+									"key": "apellidos",
+									"value": "ramirez",
+									"type": "text"
+								},
+								{
+									"key": "celular",
+									"value": "3203782946",
+									"type": "text"
+								},
+								{
+									"key": "correo",
+									"value": "pedritojuanito@gamail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/estudiantes",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"estudiantes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "eliminar_estudiante",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "identificacion",
+									"value": "54321",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/estudiantes",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"estudiantes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_estudiante",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "identificacion",
+									"value": "54321",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/estudiantes/id",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"estudiantes",
+								"id"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Semestres",
+			"item": [
+				{
+					"name": "listar_semestres",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/semestres",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"semestres"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_semestre_by_id",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "semestre",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/semestres",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"semestres"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "EspaciosAcademicos",
+			"item": [
+				{
+					"name": "listar_espacios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/espacios_academicos",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"espacios_academicos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "crear_espacios",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "nombre",
+									"value": "New",
+									"type": "text"
+								},
+								{
+									"key": "semestre",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/espacios_academicos",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"espacios_academicos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "actualizar_espacios",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "nombre",
+									"value": "new2update",
+									"type": "text"
+								},
+								{
+									"key": "semestre",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/espacios_academicos",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"espacios_academicos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "eliminar_espacios",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "5",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/espacios_academicos",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"espacios_academicos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_espacio",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "espacio_id",
+									"value": "5",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/espacios_academicos/id",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"espacios_academicos",
+								"id"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "EstudiantesEspaciosAcademicos",
+			"item": [
+				{
+					"name": "agregar_estudiante_espacio",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id_espacio",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "id_estudiante",
+									"value": "1007403404",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/lista_clase",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"lista_clase"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "eliminar_estudiante_lista",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "1111",
+									"type": "text"
+								},
+								{
+									"key": "id_espacio",
+									"value": "4",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/lista_clase",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"lista_clase"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sesiones",
+			"item": [
+				{
+					"name": "listar_sesiones",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/sesiones",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"sesiones"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "crear_sesion",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "fecha",
+									"value": "2035-05-03",
+									"type": "text"
+								},
+								{
+									"key": "hora_ini",
+									"value": "07:57:00",
+									"type": "text"
+								},
+								{
+									"key": "hora_end",
+									"value": "09:54:00",
+									"type": "text"
+								},
+								{
+									"key": "id_espacio",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/sesiones",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"sesiones"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_sesion",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id_sesion",
+									"value": "6",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/sesiones/id",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"sesiones",
+								"id"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Asistencia",
+			"item": [
+				{
+					"name": "crear_asistencia",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id_estudiante",
+									"value": "1111",
+									"type": "text"
+								},
+								{
+									"key": "id_sesion",
+									"value": "6",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/asistencia",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"asistencia"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listar_faltantes",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id_espacio",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "id_sesion",
+									"value": "6",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/asistencia/faltantes",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"asistencia",
+								"faltantes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
