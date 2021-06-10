@@ -1,5 +1,36 @@
-from src.shared.infra.base_api import * 
+
+
+from flask import Flask, render_template, request, Response, jsonify
+#from datetime import timedelta
+#from flask_sqlalchemy import SQLAlchemy
+#import os
+from src.shared.infra.mariadb import ConexionDb 
+app = Flask(__name__)
+conexion = ConexionDb(app)
+app=conexion.new_app_with_conexion()
+db=conexion.db_sql_alchemy(app)
+
+'''
+app.config.from_mapping(
+        # a default secret that should be overridden by instance config
+        SECRET_KEY='dev',
+)
+app.permanent_session_lifetime=timedelta(minutes=30)
+
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://{}:{}@{}/{}'.format(
+    os.getenv('DB_USER', 'root'),
+    os.getenv('DB_PASSWORD', 'pass'),
+    os.getenv('DB_HOST', 'dbmysql1'),
+    os.getenv('DB_NAME', 'control_asistencia')
+)
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+db = SQLAlchemy(app)
+'''
+#from src.shared.infra.base_api import * 
 from src.shared.infra.Modelos import *
+#from apps.api.Modelos import *
 from src.shared.infra.dto import estudiantes_dto, espacios_dto, lista_clase_dto, sesiones_dto, asistencia_dto, faltantes_dto 
 from src.estudiantes.app import listar, crear, actualizar, eliminar, get_estudiante
 from src.semestres.app import listar_semestre, get_semestre
@@ -7,6 +38,7 @@ from src.espacios_academicos.app import listar_espacios, crear_espacios, actuali
 from src.estudiantes_espacios_academicos.app import crear_lista, eliminar_estudiante_lista
 from src.sesiones.app import listar_sesiones, crear_sesiones, get_sesion
 from src.asistencia.app import crear_asistencia, listar_faltantes
+
 
 #Estudiantes
 
@@ -263,5 +295,6 @@ def listar_estudiantes_faltantes():
         return jsonify(listarFaltantesCase.run())
 
 
-def create_app_api():
-    app.run(debug=True, port=5100)
+def create_app():
+    app.run(debug=True, port=5000)
+    return app

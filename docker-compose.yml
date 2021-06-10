@@ -1,0 +1,31 @@
+version: "3.7"
+
+services:
+  dbmysql1:
+    image: "mysql-asistencia-image"
+    build: "./db"
+    restart: always
+    ports:
+      - "3306:3306"
+
+  flask2:
+    build: ./flask
+    container_name: flask2
+    restart: always
+    environment:
+      DB_HOST: dbmysql1
+      DB_NAME: control_asistencia 
+      DB_USER: root
+      DB_PASSWORD: pass
+    ports:
+      - "5000:5000" 
+    depends_on: 
+      - dbmysql1
+
+
+  #nginx:
+    #build: ./nginx
+    #container_name: nginx
+    #restart: always
+    #ports:
+    #  - "80:80"
